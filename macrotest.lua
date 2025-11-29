@@ -198,7 +198,7 @@ local function Ability1(x,y,z,pathName,dx,dy,dz,pointToEnd,name,wt)
     local t = findTower(x,y,z)
     if t then
         local pos = Vector3.new(x,y,z)
-        local dir = Vector3.new(dx,dy,dz)
+        local dir = Vector3.new(dx,dy,dz) -- mercenary ability use "dist" instead of pointToEnd
         pcall(function() RF:InvokeServer("Troops","Abilities","Activate",{Troop=t,Data={directionCFrame=CFrame.new(pos,dir),pathName=pathName,pointToEnd=pointToEnd},Name=name}) end)
     end
     task.wait(0.5)
